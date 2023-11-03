@@ -1,0 +1,9 @@
+ignore <COMMENT> ::= "(/\*([^\*]|(\*+[^\*/]))*\*+/)|(//[^\n]*)";
+
+<IGNORE> ::= "ignore";
+<REDUCE> ::= "::=";
+<TOKEN_ID> ::= "<\w(\w|\d)*>";
+<REGEX> ::= "\"([^\"\\]|(\\.))*\"";
+<RULE_END> ::= ";";
+
+ignore <WHITESPACE> ::= "\s+";

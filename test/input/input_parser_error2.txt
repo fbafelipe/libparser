@@ -1,0 +1,7 @@
+<START> ::= <FOO> BAR <FOO>;
+
+<FOO> ::= ::= BAR;
+
+;
+
+<X> ::=

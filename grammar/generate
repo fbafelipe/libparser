@@ -1,0 +1,31 @@
+#!/bin/bash
+
+PARSERGEN=../build/parsergen-dbg
+OUTPUT_FOLDER=src
+
+GRAMMAR_SCANNER=$OUTPUT_FOLDER/GrammarLoaderScannerBuffer
+GRAMMAR_PARSER=$OUTPUT_FOLDER/GrammarLoaderParserBuffer
+REGEX=$OUTPUT_FOLDER/RegexLoaderBuffer
+
+echo "Generating grammar scanner loader..."
+CMD="$PARSERGEN -s grammar_scanner_loader.bnf -o $GRAMMAR_SCANNER -v scanner_loader_buffer"
+if [ $SHOWCMD ]; then
+	echo $CMD;
+fi
+$CMD
+
+echo "Generating grammar parser loader..."
+CMD="$PARSERGEN -s grammar_parser_loader.bnf -o $GRAMMAR_PARSER -v parser_loader_buffer"
+if [ $SHOWCMD ]; then
+	echo $CMD;
+fi
+$CMD
+
+echo "Generating regex loader..."
+CMD="$PARSERGEN -s regex_scanner.bnf -p regex_parser.bnf -t LL1 -o $REGEX -v regex_loader_buffer"
+if [ $SHOWCMD ]; then
+	echo $CMD;
+fi
+$CMD
+
+echo "Done"

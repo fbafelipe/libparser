@@ -1,0 +1,14 @@
+<PARSER> ::= <RULE> <PARSER>
+		| // epsilon
+		;
+
+<RULE> ::= NON_TERMINAL REDUCE <RULE_RIGHT> <OR_LIST> RULE_END;
+
+<OR_LIST> ::= OR <RULE_RIGHT> <OR_LIST>
+		| // epsilon
+		;
+
+<RULE_RIGHT> ::= NON_TERMINAL <RULE_RIGHT>
+		| TOKEN <RULE_RIGHT>
+		| // epsilon
+		;

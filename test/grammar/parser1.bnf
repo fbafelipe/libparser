@@ -1,0 +1,11 @@
+<START> ::= A <START> A
+		| A <FOO> A
+		;
+
+<FOO> ::= NUM <FOO> NUM
+		| NUM <BAR> NUM
+		;
+
+<BAR> ::= <BAR> ID
+		| ID
+		;

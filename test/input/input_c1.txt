@@ -1,0 +1,41 @@
+/*
+ * Input file for C parser test
+ * This test is only for C, do not use preprocessor directives
+ */
+
+
+/* let's check if the comment regex is really working */
+/******/
+/**///*/*///
+/**///
+
+// STATIC VOID IDENTIFIER P_OPEN VOID P_CLOSE INST_END
+static void foo(void);
+
+// STATIC VOID IDENTIFIER P_OPEN VOID P_OPEN MUL IDENTIFIER P_CLOSE P_OPEN P_CLOSE P_CLOSE INST_END
+static void bar(void (*f)());
+
+// INT IDENTIFIER P_OPEN INT IDENTIFIDER COMMA CHAR MUL IDENTIFIER B_OPEN B_CLOSE P_CLOSE BEGIN
+int main(int argc, char *argv[]) {
+	// IDENTIFIER P_OPEN IDENTIFIER P_CLOSE INST_END
+	bar(foo);
+	
+	// RETURN CONSTANT INST_END
+	return 0;
+	
+// END
+}
+
+// STATIC VOID IDENTIFIER P_OPEN P_CLOSE BEGIN
+static void foo() {
+	// IDENTIFIER P_OPEN STRING_LITERAL P_CLOSE INST_END
+	printf("foo");
+// END
+}
+
+// STATIC VOID IDENTIFIER P_OPEN VOID P_OPEN MUL IDENTIFIER P_CLOSE P_OPEN P_CLOSE P_CLOSE BEGIN
+static void bar(void (*f)()) {
+	// IDENTIFIER P_OPEN P_CLOSE INST_END
+	f();
+// END
+}

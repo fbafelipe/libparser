@@ -1,0 +1,26 @@
+<REGEX> ::= <EXPRESSION> <REGEX_OR>
+		| // epsilon
+		;
+
+<REGEX_OR> ::= OR <REGEX>
+		| <REGEX>
+		;
+
+<EXPRESSION> ::= SYMBOL <FACTOR>
+		| COMPOSED_START <REGEX> COMPOSED_END <FACTOR>
+		| SYMBOL_LIST_START <SYMBOL_SET> SYMBOL_LIST_END <FACTOR>
+		;
+
+<FACTOR> ::= CLOSURE
+		| ONE_CLOSURE
+		| OPTIONAL
+		| // epsilon
+		;
+
+<SYMBOL_SET> ::= <SYMBOL_LIST>
+		| NOT <SYMBOL_LIST>
+		;
+
+<SYMBOL_LIST> ::= SYMBOL <SYMBOL_LIST>
+		| // epsilon
+		;

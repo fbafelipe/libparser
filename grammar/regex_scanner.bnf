@@ -1,0 +1,13 @@
+<CLOSURE> ::= "\*";
+<ONE_CLOSURE> ::= "\+";
+<OPTIONAL> ::= "\?";
+<OR> ::= "\|";
+<NOT> ::= "\^";
+
+<COMPOSED_START> ::= "\(";
+<COMPOSED_END> ::= "\)";
+
+<SYMBOL_LIST_START> ::= "\[";
+<SYMBOL_LIST_END> ::= "\]";
+
+<SYMBOL> ::= "[^\\]|\\.";
