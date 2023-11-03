@@ -23,6 +23,8 @@ typedef ParsingTree::NonTerminal NonTerminal;
 typedef ParsingTree::Token Token;
 
 RegexCompiler *RegexCompiler::getInstance() {
+	if (!instance)
+		instance = new RegexCompiler();
 	return instance;
 }
 
@@ -502,4 +504,4 @@ void RegexCompiler::createPredefinedSetHexaUpper(PredefinedSet & predefined) con
 	predefined['H'] = symbolList;
 }
 
-Pointer<RegexCompiler> RegexCompiler::instance = new RegexCompiler();
+Pointer<RegexCompiler> RegexCompiler::instance = NULL;
