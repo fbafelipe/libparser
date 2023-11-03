@@ -2,6 +2,7 @@
 
 #include "parser/Grammar.h"
 #include "parser/GrammarLoader.h"
+#include "parser/IOError.h"
 #include "parser/ParserCompileResult.h"
 #include "parser/ParserDefs.h"
 #include "parser/ParserError.h"
@@ -77,8 +78,8 @@ int main(int argc, char *argv[]) {
 				std::cerr << error.getMessage() << std::endl;
 				exit(-1);
 			}
-			catch (std::string & error) {
-				std::cerr << "Error: " << error << std::endl;
+			catch (IOError & error) {
+				std::cerr << "Error: " << error.what() << std::endl;
 				exit(-1);
 			}
 		}
@@ -90,8 +91,8 @@ int main(int argc, char *argv[]) {
 				std::cerr << error.getMessage() << std::endl;
 				exit(-1);
 			}
-			catch (std::string & error) {
-				std::cerr << "Error: " << error << std::endl;
+			catch (IOError & error) {
+				std::cerr << "Error: " << error.what() << std::endl;
 				exit(-1);
 			}
 			
