@@ -35,6 +35,10 @@ To use libparser you just need to add the include folder in your compiler's incl
 and link your executable with libparser binary.
 
 
+# Running tests
+
+The tests should run from the folder $PROJECT_ROOT/test/build
+
 # TODO
 	* Documentation.
 		libparser is lacking documentation.

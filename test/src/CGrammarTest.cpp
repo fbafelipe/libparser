@@ -21,9 +21,11 @@ void CGrammarTest::setUp() {
 }
 
 void CGrammarTest::tearDown() {
-	delete(grammar->getScannerGrammar());
-	delete(grammar->getParserGrammar());
-	delete(grammar);
+	if (grammar) {
+		delete (grammar->getScannerGrammar());
+		delete (grammar->getParserGrammar());
+		delete (grammar);
+	}
 	scannerAutomata = NULL;
 	parserTable = NULL;
 }
